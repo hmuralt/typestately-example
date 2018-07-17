@@ -10,6 +10,7 @@ export function setupMainStore() {
 
     const store = createStore(combineReducers(initalReducers), applyMiddleware(routerMiddleware(history)));
     store.subscribe(() => {
+        // Just for testing/demo purpose see how the store is changing
         // tslint:disable-next-line:no-console
         console.log(store.getState());
     })
