@@ -2,16 +2,7 @@
 import { DecoratedStateHandler, StateHandler, Reducer, registerOnStore } from "typestately";
 import { ChangeAction, ActionType } from "./CounterActions";
 import storeIds from "../../stores/StoreIds";
-
-export interface State {
-    value: number;
-    clicked: Date;
-}
-
-const defaultState: State = {
-    value: 0,
-    clicked: new Date()
-};
+import State, { defaultState } from "./CounterState";
 
 @DecoratedStateHandler
 class CounterStateHandler extends StateHandler<State, ActionType> {

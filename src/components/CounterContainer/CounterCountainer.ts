@@ -1,6 +1,7 @@
 import { WithStateToProps } from "typestately";
 import Counter, { Props } from "../Counter/Counter";
-import counterStateHandler, { State } from "./CounterStateHandler";
+import counterStateHandler from "./CounterStateHandler";
+import State from "./CounterState";
 
 export default WithStateToProps<State, Props>(
     counterStateHandler.stateProvider,
