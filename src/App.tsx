@@ -1,6 +1,6 @@
 import * as React from "react";
 import "./App.css";
-import CounterCountainer from "./components/CounterContainer/CounterCountainer";
+import CounterCountainer from "./components/Counter/CounterCountainer";
 
 class App extends React.Component {
   public render() {
