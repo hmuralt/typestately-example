@@ -3,6 +3,8 @@ import * as React from "react";
 export interface Props {
     value: number;
     clicked: Date;
+    min: number;
+    max: number;
     onIncrement: (clicked: Date) => void;
     onIncrementAsync: (clicked: Date) => Promise<void>;
     onDecrement: (clicked: Date) => void;
@@ -23,11 +25,11 @@ export default class Counter extends React.Component<Props> {
             <div>
                 <p>Value: {this.props.value} (clicked: {this.props.clicked.toLocaleString()})</p>
                 <p>
-                    <button onClick={this.increment}> + </button>
-                    <button onClick={this.decrement}> - </button>
+                    <button onClick={this.decrement} disabled={this.props.value <= this.props.min}> - </button>
+                    <button onClick={this.increment} disabled={this.props.value >= this.props.max}> + </button>
                 </p>
                 <p>
-                    <button onClick={this.incrementAsync}> + (async) </button>
+                    <button onClick={this.incrementAsync} disabled={this.props.value >= this.props.max}> + (async) </button>
                 </p>
             </div>
         );
