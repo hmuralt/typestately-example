@@ -1,4 +1,5 @@
 import * as React from "react";
+import "./Loader.css";
 
 export enum Status {
     Done,
@@ -12,19 +13,15 @@ export interface Props {
 
 export default class Loader extends React.Component<Props> {
     public render() {
-        let loading = "";
-
-        if (this.props.status === Status.Loading) {
-            loading = "loading component...";
-        }
-
-        if (this.props.status === Status.Updating) {
-            loading = "updating component...";
+        if (this.props.status === Status.Done) {
+            return (
+                this.props.children
+            );
         }
 
         return (
-            <div className="c-loader">
-                <div className="text">{loading}</div>
+            <div className="loader-container">
+                <div className="overlay">{this.props.status === Status.Loading ? "Loading..." : "Updating..."}</div>
                 {this.props.children}
             </div>
         );
