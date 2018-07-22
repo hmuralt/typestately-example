@@ -1,6 +1,6 @@
 
 import { DecoratedStateHandler, StateHandler, Reducer, registerOnStore } from "typestately";
-import storeIds from "../../stores/StoreIds";
+import storeIds from "stores/StoreIds";
 import { UpdateAction, ActionType } from "./ConfigurationActions";
 import State, { defaultState } from "./ConfigurationState";
 
