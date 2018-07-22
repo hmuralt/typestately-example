@@ -6891,9 +6891,9 @@ typescript@^2.9.2:
   version "2.9.2"
   resolved "https://registry.yarnpkg.com/typescript/-/typescript-2.9.2.tgz#1cbf61d05d6b96269244eb6a3bce4bd914e0f00c"
 
-typestately@^1.0.3:
-  version "1.0.3"
-  resolved "https://registry.yarnpkg.com/typestately/-/typestately-1.0.3.tgz#5f830e89db5cda8791c7bf0c8ee8230651d4baaa"
+typestately@^1.1.0:
+  version "1.1.0"
+  resolved "https://registry.yarnpkg.com/typestately/-/typestately-1.1.0.tgz#50bc6d78c3bf803584ac21b89548d58dd0868dc9"
 
 ua-parser-js@^0.7.18:
   version "0.7.18"

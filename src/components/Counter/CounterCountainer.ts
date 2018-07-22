@@ -1,6 +1,5 @@
-import { WithStateToProps } from "typestately";
+import { withStateToProps, combine } from "typestately";
 import { compose } from "recompose";
-import { combine } from "typestately/dist/StateProvider";
 import configurationStateHandler from "states/Configuration/ConfigurationStateHandler";
 import withLoader from "components/Loader/WithLoader";
 import Counter, { Props } from "./Counter"
@@ -8,7 +7,7 @@ import counterStateHandler from "./State/CounterStateHandler";
 
 export default compose(
     withLoader(counterStateHandler.withLoaderStateHandler),
-    WithStateToProps(
+    withStateToProps(
         combine(
             counterStateHandler.stateProvider,
             configurationStateHandler.stateProvider

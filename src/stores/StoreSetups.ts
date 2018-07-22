@@ -1,5 +1,5 @@
 import { createStore } from "redux";
-import { CoreRegistry } from "typestately";
+import { coreRegistry } from "typestately";
 
 export function setupMainStore() {
     const store = createStore((state) => state);
@@ -10,5 +10,5 @@ export function setupMainStore() {
         console.log(store.getState());
     })
 
-    return CoreRegistry.registerStore(store, {});
+    return coreRegistry.registerStore(store, {});
 }

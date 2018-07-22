@@ -1,5 +1,5 @@
 import * as React from "react";
-import { WithStateToProps } from "typestately";
+import { withStateToProps } from "typestately";
 import WithLoaderStateHandler from "./WithLoaderStateHandler";
 import Loader, { Props } from "./Loader";
 
@@ -10,7 +10,7 @@ export default function withLoader(withLoaderStateHandler: WithLoaderStateHandle
             <Loader status={ownProps.status}><Component {...ownProps} /></Loader>
         );
 
-        return WithStateToProps(
+        return withStateToProps(
             withLoaderStateHandler.stateProvider,
             (state): Props => {
                 return {
