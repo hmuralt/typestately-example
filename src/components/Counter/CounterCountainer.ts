@@ -6,7 +6,7 @@ import Counter, { Props } from "./Counter"
 import counterStateHandler from "./State/CounterStateHandler";
 
 export default compose(
-    withLoader(counterStateHandler.withLoaderStateHandler),
+    withLoader(counterStateHandler.loaderStateHandler),
     withStateToProps(
         combine(
             counterStateHandler.stateProvider,

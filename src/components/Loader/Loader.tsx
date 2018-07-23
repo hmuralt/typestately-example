@@ -1,11 +1,6 @@
 import * as React from "react";
+import Status from "./State/Status";
 import "./Loader.css";
-
-export enum Status {
-    Done,
-    Loading,
-    Updating
-}
 
 export interface Props {
     status: Status;

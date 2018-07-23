@@ -1,21 +1,21 @@
 
 import { DecoratedStateHandler, StateHandler, Reducer, registerOnStore, Nested } from "typestately";
 import storeIds from "stores/StoreIds";
-import WithLoaderStateHandler from "components/Loader/WithLoaderStateHandler";
+import Status from "components/Loader/State/Status";
+import LoaderStateHandler from "components/Loader/State/LoaderStateHandler";
 import { ChangeAction, ActionType } from "./CounterActions";
 import State, { defaultState } from "./CounterState";
-import { Status } from "../../Loader/Loader";
 
 @DecoratedStateHandler
 class CounterStateHandler extends StateHandler<State, ActionType> {
     // Ideally injected...
     @Nested
-    public readonly withLoaderStateHandler: WithLoaderStateHandler;
+    public readonly loaderStateHandler: LoaderStateHandler;
 
-    constructor(withLoaderStateHandler: WithLoaderStateHandler) {
+    constructor(loaderStateHandler: LoaderStateHandler) {
         super("counter", defaultState);
 
-        this.withLoaderStateHandler = withLoaderStateHandler;
+        this.loaderStateHandler = loaderStateHandler;
     }
 
     public dispatchIncrement(clicked: Date) {
@@ -33,12 +33,12 @@ class CounterStateHandler extends StateHandler<State, ActionType> {
     }
 
     public incrementAsync(clicked: Date) {
-        this.withLoaderStateHandler.dispatchSetStatusAction(Status.Updating);
+        this.loaderStateHandler.dispatchSetStatusAction(Status.Updating);
         return new Promise<void>((resolve) => {
             window.setTimeout(
                 () => {
                     this.dispatchIncrement(clicked);
-                    this.withLoaderStateHandler.dispatchSetStatusAction(Status.Done);
+                    this.loaderStateHandler.dispatchSetStatusAction(Status.Done);
                     resolve();
                 },
                 2000
@@ -63,7 +63,7 @@ class CounterStateHandler extends StateHandler<State, ActionType> {
     }
 }
 
-const counterStateHandler = new CounterStateHandler(new WithLoaderStateHandler());
+const counterStateHandler = new CounterStateHandler(new LoaderStateHandler());
 
 registerOnStore(storeIds.Main, counterStateHandler);
 
