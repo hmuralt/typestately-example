@@ -1,7 +1,7 @@
 export default interface State {
-    updatingCount: number;
+  updatingCount: number;
 }
 
 export const defaultState: State = {
-    updatingCount: 0
+  updatingCount: 0
 };

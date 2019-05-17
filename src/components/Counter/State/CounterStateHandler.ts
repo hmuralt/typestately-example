@@ -1,70 +1,59 @@
-
-import { DecoratedStateHandler, StateHandler, Reducer, registerOnStore, Nested } from "typestately";
-import storeIds from "stores/StoreIds";
+import { StateHandler } from "typestately";
 import Status from "components/Loader/State/Status";
 import LoaderStateHandler from "components/Loader/State/LoaderStateHandler";
 import { ChangeAction, ActionType } from "./CounterActions";
 import State, { defaultState } from "./CounterState";
 
-@DecoratedStateHandler
 class CounterStateHandler extends StateHandler<State, ActionType> {
-    // Ideally injected...
-    @Nested
-    public readonly loaderStateHandler: LoaderStateHandler;
+  // Ideally injected...
+  @StateHandler.nested
+  public readonly loaderStateHandler: LoaderStateHandler;
 
-    constructor(loaderStateHandler: LoaderStateHandler) {
-        super("counter", defaultState);
+  constructor(loaderStateHandler: LoaderStateHandler) {
+    super("counter", defaultState);
 
-        this.loaderStateHandler = loaderStateHandler;
-    }
+    this.loaderStateHandler = loaderStateHandler;
+  }
 
-    public dispatchIncrement(clicked: Date) {
-        this.dispatch<ChangeAction>({
-            type: ActionType.Increment,
-            clicked
-        });
-    }
+  public increment(clicked: Date) {
+    this.dispatch<ChangeAction>({
+      type: ActionType.Increment,
+      clicked
+    });
+  }
 
-    public dispatchDecrement(clicked: Date) {
-        this.dispatch<ChangeAction>({
-            type: ActionType.Decrement,
-            clicked
-        });
-    }
+  public decrement(clicked: Date) {
+    this.dispatch<ChangeAction>({
+      type: ActionType.Decrement,
+      clicked
+    });
+  }
 
-    public incrementAsync(clicked: Date) {
-        this.loaderStateHandler.dispatchSetStatusAction(Status.Updating);
-        return new Promise<void>((resolve) => {
-            window.setTimeout(
-                () => {
-                    this.dispatchIncrement(clicked);
-                    this.loaderStateHandler.dispatchSetStatusAction(Status.Done);
-                    resolve();
-                },
-                2000
-            );
-        });
-    }
+  public incrementAsync(clicked: Date) {
+    this.loaderStateHandler.setStatus(Status.Updating);
+    window.setTimeout(() => {
+      this.increment(clicked);
+      this.loaderStateHandler.setStatus(Status.Done);
+    }, 2000);
+  }
 
-    @Reducer<State, ActionType>(ActionType.Increment)
-    protected increment(state: State, action: ChangeAction) {
-        return {
-            value: state.value + 1,
-            clicked: action.clicked
-        };
-    }
+  @StateHandler.reducer<State, ActionType>(ActionType.Increment)
+  protected reduceIncrement(state: State, action: ChangeAction) {
+    return {
+      value: state.value + 1,
+      clicked: action.clicked
+    };
+  }
 
-    @Reducer<State, ActionType>(ActionType.Decrement)
-    protected decrement(state: State, action: ChangeAction) {
-        return {
-            value: state.value - 1,
-            clicked: action.clicked
-        };
-    }
+  @StateHandler.reducer<State, ActionType>(ActionType.Decrement)
+  protected reduceDecrement(state: State, action: ChangeAction) {
+    return {
+      value: state.value - 1,
+      clicked: action.clicked
+    };
+  }
 }
 
 const counterStateHandler = new CounterStateHandler(new LoaderStateHandler());
-
-registerOnStore(storeIds.Main, counterStateHandler);
 
 export default counterStateHandler;

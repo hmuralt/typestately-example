@@ -1,11 +1,11 @@
-import { Action as ReduxAction } from "redux";
+import { Action } from "redux";
 
 export enum ActionType {
-    Increment = "INCREMENT",
-    Decrement = "DECREMENT"
+  Increment = "INCREMENT",
+  Decrement = "DECREMENT"
 }
 
-export interface ChangeAction extends ReduxAction<ActionType> {
-    type: ActionType;
-    clicked: Date;
+export interface ChangeAction extends Action<ActionType> {
+  type: ActionType;
+  clicked: Date;
 }

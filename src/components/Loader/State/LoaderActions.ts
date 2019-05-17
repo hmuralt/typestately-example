@@ -1,11 +1,11 @@
-import { Action as ReduxAction } from "redux";
+import { Action } from "redux";
 import Status from "./Status";
 
 export enum ActionType {
-    SetStatus = "SetStatus"
+  SetStatus = "SET_STATUS"
 }
 
-export interface SetStatusAction  extends ReduxAction<ActionType> {
-    type: ActionType;
-    status: Status;
+export interface SetStatusAction extends Action<ActionType> {
+  type: ActionType;
+  status: Status;
 }

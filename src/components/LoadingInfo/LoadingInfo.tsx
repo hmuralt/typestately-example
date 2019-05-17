@@ -1,7 +1,7 @@
 import * as React from "react";
 
 export interface Props {
-    updatingCount: number;
+  updatingCount: number;
 }
 
-export default (props: Props) => (<div>Updating count: {props.updatingCount}</div>)
+export default (props: Props) => <div>Updating count: {props.updatingCount}</div>;

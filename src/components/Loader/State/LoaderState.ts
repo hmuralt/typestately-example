@@ -1,9 +1,9 @@
 import Status from "./Status";
 
 export default interface State {
-    status: Status;
+  status: Status;
 }
 
 export const defaultState: State = {
-    status: Status.Done
+  status: Status.Done
 };
