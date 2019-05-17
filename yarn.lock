@@ -9327,10 +9327,12 @@ typescript@3.4.5:
   resolved "https://registry.yarnpkg.com/typescript/-/typescript-3.4.5.tgz#2d2618d10bb566572b8d7aad5180d84257d70a99"
   integrity sha512-YycBxUb49UUhdNMU5aJ7z5Ej2XGmaIBL0x34vZ82fn3hGvD+bgrMrVDpatgz2f7YxUMJxMkbWxJZeAvDxVe7Vw==
 
-typestately@^2.2.0:
-  version "2.2.1"
-  resolved "https://registry.yarnpkg.com/typestately/-/typestately-2.2.1.tgz#b80f197b498326f602b3cce752608c11ab64626c"
-  integrity sha512-soV1SERMJS8eI9aoVhv65bUPsPK0Qh0CKtPabrV6STZQQeb9E9vUMRTM35ezpEg6tm2qLmZKJQbds1hPNftiwg==
+typestately@^2.2.2:
+  version "2.2.2"
+  resolved "https://registry.yarnpkg.com/typestately/-/typestately-2.2.2.tgz#15355a2af937ee6382bae475e38a8c06431384cd"
+  integrity sha512-dVxIe88C+VxMFY7BWz0LpjbtWJRZgOw+RES5OuILhJBqzxAc8QTI8QDdsCvjQ3n0lEWf0QReQknWHACPu+QqMg==
+  dependencies:
+    shallowequal "^1.1.0"
 
 uglify-js@3.4.x:
   version "3.4.10"
