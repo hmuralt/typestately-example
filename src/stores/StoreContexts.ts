@@ -1,7 +1,8 @@
 import { setupMainStoreContext } from "./StoreContextSetups";
 
 const storeContexts = {
-  Main: setupMainStoreContext()
+  StateContextExample: setupMainStoreContext(),
+  StateHandlerExample: setupMainStoreContext()
 };
 
 export default storeContexts;
