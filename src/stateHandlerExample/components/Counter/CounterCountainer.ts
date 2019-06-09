@@ -1,20 +1,14 @@
-import { combineLatest } from "rxjs";
-import { withStateToProps } from "typestately";
+import { withStateToProps, combine } from "typestately";
 import storeContexts from "stores/StoreContexts";
-import ConfigurationState from "stateHandlerExample/components/Configuration/state/ConfigurationState";
 import configurationStateHandler from "stateHandlerExample/components/Configuration/state/ConfigurationStateHandler";
 import withLoader from "stateHandlerExample/components/Loader/WithLoader";
 import Counter, { Props } from "./Counter";
-import CounterState from "./state/CounterState";
 import counterStateHandler from "./state/CounterStateHandler";
 
 counterStateHandler.attachTo(storeContexts.StateHandlerExample.hub);
 
 const counterContainer = withStateToProps(
-  {
-    state: [counterStateHandler.state, configurationStateHandler.state] as [CounterState, ConfigurationState],
-    state$: combineLatest(counterStateHandler.state$, configurationStateHandler.state$)
-  },
+  combine(counterStateHandler, configurationStateHandler),
   ([counterState, configurationState]): Props => {
     return {
       value: counterState.value,
