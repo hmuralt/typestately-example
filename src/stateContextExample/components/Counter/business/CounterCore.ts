@@ -1,15 +1,14 @@
 import { Hub, createStateDefinition } from "typestately";
 import { createLoaderCore } from "stateContextExample/components/Loader/business/LoaderCore";
 import Status from "stateContextExample/components/Loader/business/Status";
-import State, { defaultState } from "./CounterState";
+import { defaultState } from "./CounterState";
 import { ActionType } from "./CounterActions";
 import reducer from "./CounterReducer";
 
-export function createCounterCore(hub: Hub) {
-  const stateContext = createStateDefinition<State, ActionType>("counter", defaultState)
-    .setReducer(reducer)
-    .attachTo(hub);
+const stateDefinition = createStateDefinition("counter", defaultState).setReducer(reducer);
 
+export function createCounterCore(hub: Hub) {
+  const stateContext = stateDefinition.attachTo(hub);
   const loaderCore = createLoaderCore(hub, stateContext.id);
 
   function increment(clicked: Date) {

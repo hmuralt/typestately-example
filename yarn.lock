@@ -9327,10 +9327,10 @@ typescript@3.4.5:
   resolved "https://registry.yarnpkg.com/typescript/-/typescript-3.4.5.tgz#2d2618d10bb566572b8d7aad5180d84257d70a99"
   integrity sha512-YycBxUb49UUhdNMU5aJ7z5Ej2XGmaIBL0x34vZ82fn3hGvD+bgrMrVDpatgz2f7YxUMJxMkbWxJZeAvDxVe7Vw==
 
-typestately@^3.2.0:
-  version "3.2.0"
-  resolved "https://registry.yarnpkg.com/typestately/-/typestately-3.2.0.tgz#5f49958cd27c835081b6486ec3fb9a6f4b6d7c5d"
-  integrity sha512-j0VAYmLerqozbx9O8BUfkU00xFaHEU9VkKGrv1joEtv8sR9zfcozY7U8q3XXi94WqwAQmh8UhXANfDwmiJMRrQ==
+typestately@^3.3.0:
+  version "3.3.0"
+  resolved "https://registry.yarnpkg.com/typestately/-/typestately-3.3.0.tgz#d012d398fed13d07b41bf53f056d39220071a2c3"
+  integrity sha512-251TOLLYzT1mPq21q9nZLvnmVapuQNM1pvQ0YsijctrUpjXPUKe+9OasQbl7hBKaXekZzR7RRJQ0luQIIj+3Gg==
   dependencies:
     shallowequal "^1.1.0"
 
