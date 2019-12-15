@@ -1,20 +1,29 @@
 import React from "react";
 import "./App.css";
-import StateContextCounterCountainer from "stateContextExample/components/Counter/CounterCountainer";
-import StateContextLoadingInfoContainer from "stateContextExample/components/LoadingInfo/LoadingInfoContainer";
-import StateHandlerCounterCountainer from "stateHandlerExample/components/Counter/CounterCountainer";
-import StateHandlerLoadingInfoContainer from "stateHandlerExample/components/LoadingInfo/LoadingInfoContainer";
+import StateHandlerCounterCountainer from "classesExample/components/Counter/CounterCountainer";
+import StateHandlerLoadingInfoContainer from "classesExample/components/LoadingInfo/LoadingInfoContainer";
+import StateContextCounterCountainer from "functionsExample/components/Counter/CounterCountainer";
+import StateContextLoadingInfoContainer from "functionsExample/components/LoadingInfo/LoadingInfoContainer";
+import {
+  configurationStateHandlerContext,
+  createConfigurationStateHandler
+} from "functionsExample/components/Configuration/state/ConfigurationStateHandler";
+import storeContexts from "stores/StoreContexts";
 
 const App: React.FC = () => {
   return (
     <div className="App">
-      Example using state contexts.
+      Example using classes.
       <StateHandlerCounterCountainer />
       <StateHandlerLoadingInfoContainer />
       <hr />
-      Example using state handlers.
-      <StateContextCounterCountainer />
-      <StateContextLoadingInfoContainer />
+      Example using functions.
+      <configurationStateHandlerContext.Provider
+        value={createConfigurationStateHandler(storeContexts.FunctionsExample.hub)}
+      >
+        <StateContextCounterCountainer />
+        <StateContextLoadingInfoContainer />
+      </configurationStateHandlerContext.Provider>
     </div>
   );
 };
