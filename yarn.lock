@@ -9708,10 +9708,10 @@ typescript@3.7.3:
   resolved "https://registry.yarnpkg.com/typescript/-/typescript-3.7.3.tgz#b36840668a16458a7025b9eabfad11b66ab85c69"
   integrity sha512-Mcr/Qk7hXqFBXMN7p7Lusj1ktCBydylfQM/FZCk5glCNQJrCUKPkMHdo9R0MTFWsC/4kPFvDS0fDPvukfCkFsw==
 
-typestately@^5.0.0:
-  version "5.0.0"
-  resolved "https://registry.yarnpkg.com/typestately/-/typestately-5.0.0.tgz#9bae89893b6baa15171a760b5b465835dca19aa7"
-  integrity sha512-TzYltUx5/jtrzAXc/n2s/7yTXLAXczVAmLmXUqAo6Xy7bj2wqYQ+HPEf8XtvC/N0rOSuVp7XtvfT67vulc4mVg==
+typestately@^5.1.0:
+  version "5.1.0"
+  resolved "https://registry.yarnpkg.com/typestately/-/typestately-5.1.0.tgz#b2b1844ff79ed0df2fc4d371973a71a0dc6fdf1d"
+  integrity sha512-pV1AYqHAU/RBvM8oeB0Ffl8a3gcrOYDqoXzESy8n8++dc8bLrAuJCd/s8mKAj4mJk//wu6FTpXMzOz7cs7QXOw==
   dependencies:
     shallowequal "^1.1.0"
 

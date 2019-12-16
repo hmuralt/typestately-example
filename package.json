@@ -13,7 +13,7 @@
     "redux": "^4.0.4",
     "rxjs": "6.5.3",
     "typescript": "3.7.3",
-    "typestately": "^5.0.0"
+    "typestately": "^5.1.0"
   },
   "scripts": {
     "start": "react-scripts start",
